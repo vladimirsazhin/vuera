@@ -408,7 +408,7 @@ var ReactWrapper = {
 };
 
 function isReactComponent(component) {
-  if ((typeof component === 'undefined' ? 'undefined' : _typeof(component)) === 'object' && !isReactForwardReference(component)) {
+  if ((typeof component === 'undefined' ? 'undefined' : _typeof(component)) === 'object' && !isReactForwardReference(component) && !isReactProvider(component)) {
     return false;
   }
 
@@ -417,6 +417,10 @@ function isReactComponent(component) {
 
 function isReactForwardReference(component) {
   return component.$$typeof && component.$$typeof.toString() === 'Symbol(react.forward_ref)';
+}
+
+function isReactProvider(component) {
+  return component.$$typeof && component.$$typeof.toString() === 'Symbol(react.provider)';
 }
 
 function VueResolver$$1(component) {

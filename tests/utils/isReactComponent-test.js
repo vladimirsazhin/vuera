@@ -1,5 +1,6 @@
 import isReactComponent from '../../src/utils/isReactComponent'
 import ReactComponent from '../fixtures/ReactComponent'
+import ReactProvider from '../fixtures/ReactProvider'
 import ReactPureFunctionalComponent from '../fixtures/ReactPureFunctionalComponent'
 import ReactFunctionalComponent from '../fixtures/ReactFunctionalComponent'
 import StyledComponent from '../fixtures/StyledComponent'

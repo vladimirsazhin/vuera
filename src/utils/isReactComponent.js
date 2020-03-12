@@ -1,7 +1,11 @@
 import Vue from 'vue'
 
 export default function isReactComponent (component) {
-  if (typeof component === 'object' && !isReactForwardReference(component)) {
+  if (
+    typeof component === 'object' &&
+    !isReactForwardReference(component) &&
+    !isReactProvider(component)
+  ) {
     return false
   }
 
@@ -15,4 +19,8 @@ export default function isReactComponent (component) {
 
 function isReactForwardReference (component) {
   return component.$$typeof && component.$$typeof.toString() === 'Symbol(react.forward_ref)'
+}
+
+function isReactProvider (component) {
+  return component.$$typeof && component.$$typeof.toString() === 'Symbol(react.provider)'
 }
